@@ -103,15 +103,7 @@ review_total_jam_penilaian(){
 }
 
 
-# function total waktu paket konseptual
-total_waktu_paket_konseptual_penyusunan(){
-    $penyusunan_modul + $penyusunan_latihan + $penyusunan_penilaian_konseptual
-}
 
-# function total waktu paket praktek
-total_waktu_paket_praktek_penyusunan(){
-    $penyusunan_modul + $penyusunan_latihan + $penyusunan_penilaian_praktek
-}
 
 
 # function total waktu compiler per sesi
@@ -123,12 +115,8 @@ total_waktu_compiler_per_sesi(){
     total_latihan_persesi = total_latihan_per_sesi 
     total_waktu_latihan_persesi = $total_latihan_persesi *  $penyusunan_latihan
     
-    satuan_waktu_konseptual = total_waktu_paket_konseptual
-    total_penilian_konseptual = $rasio_penilaian_konseptual * $satuan_waktu_konseptual
-
-
-    satuan_waktu_praktikal = total_waktu_paket_praktek
-    total_penilian_praktik = $rasio_penilaian_praktikal * $satuan_waktu_konseptual
+    total_penilian_konseptual = $rasio_penilaian_konseptual * $penyusunan_penilaian_konseptual
+    total_penilian_praktik = $rasio_penilaian_praktikal * $penyusunan_penilaian_praktek
 
 
     total_waktu_satu_sesi = $total_waktu_module_persesi +  $total_waktu_latihan_persesi + $total_penilian_praktik
