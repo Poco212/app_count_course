@@ -119,7 +119,7 @@ total_waktu_compiler_per_sesi(){
     total_penilian_praktik = $rasio_penilaian_praktikal * $penyusunan_penilaian_praktek
 
 
-    total_waktu_satu_sesi = $total_waktu_module_persesi +  $total_waktu_latihan_persesi + $total_penilian_praktik
+    total_waktu_satu_sesi = $total_waktu_module_persesi +  $total_waktu_latihan_persesi + $total_penilian_praktik + $total_penilian_konseptual
 
 }
 
@@ -129,5 +129,27 @@ total_waktu_compiler_per_course(){
     $total_pertemuan * $total_sesi
 }
 
+
+# function total waktu reviewer per sesi
+total_waktu_reviewer_per_sesi(){
+
+    total_module_persesi = total_modul_per_sesi
+    total_waktu_module_persesi = $total_module_persesi *  $review_modul
+
+    total_latihan_persesi = total_latihan_per_sesi 
+    total_waktu_latihan_persesi = $total_latihan_persesi *  $review_latihan
+    
+    total_penilian_reviewer = $rasio_penilaian_konseptual + $rasio_penilaian_praktek * $review_penilaian
+
+
+    total_waktu_satu_sesi = $total_waktu_module_persesi +  $total_waktu_latihan_persesi + $total_penilian_reviewer
+
+}
+
+
+total_waktu_reviewer_per_course(){
+    total_sesi = total_waktu_reviewer_per_sesi
+    $total_pertemuan * $total_sesi
+}
 
 
